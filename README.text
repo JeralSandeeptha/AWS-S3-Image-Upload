@@ -1,0 +1,38 @@
+This is the bucket policy which i attached to my bucket. 
+I go to bucket permisions tab and attach this.
+
+{
+    "Version": "2012-10-17",
+    "Id": "OpenBucketPolicy",
+    "Statement": [
+        {
+            "Sid": "AllowAllPermissions",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket",
+                "s3:DeleteObject",
+                "s3:DeleteBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy",
+                "s3:PutBucketAcl",
+                "s3:PutBucketPolicy"
+            ],
+            "Resource": [
+                "arn:aws:s3:::jeral-saloon-bucket/*",
+                "arn:aws:s3:::jeral-saloon-bucket"
+            ]
+        }
+    ]
+}
+
+aws sdk and multer-s3 versions should be compatible with each other.
+for that i downgrade mulkter-s3 package using
+npm i multer-s3@2.10.0
+
+IAM user should have either AdminAccess or S3FullAccess.
+
+Bucket should be publically accessible.
