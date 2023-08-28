@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const blogRoutes = require('./routes/blog');
+const postRoutes = require('./routes/post');
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/users', blogRoutes);
+app.use('/posts', postRoutes);
 
 const PORT = process.env.PORT || 8000;
 
